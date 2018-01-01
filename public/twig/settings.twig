@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+       	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+       	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+       	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/settings.css"/>
+		<link rel="stylesheet" href="/css/navbar.css"/>
+		<script src="/js/settings.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			{%include "twig/navbar.twig"%}
+			<div id="main-content">
+                <h2 id="update-title">Update Your Profile</h2>
+                <div class="alert {{type}}">
+                    {{message}}
+                </div> 
+                {% if not completed and completed is defined%}
+                <div class="alert alert-danger">
+                    Your profile is not completed! Please make sure to add an email and a password!
+                </div>
+                {%endif%}
+                <form method="POST" action="/settings" id="update-form">
+                    <label class='form-labels'>Current Password(If you logged in with github or twitter, leave blank)</label>
+                    <br/>
+                    <input type="password" name="curpass" placeholder="Enter Current Password Here:" class="form-control"/>
+                    <br/>
+                    <label class="form-labels">Change Email</label>
+                    <br/>
+                    <input type="email" name="email" placeholder="Enter Email Here: " class="form-control" value="{{email}}"/>
+                    <br/>
+                    <label class='form-labels'>New Password</label>
+                    <br/>
+                    <input type="password" name="pass1" placeholder="Enter Password Here:" class="form-control"/>
+                    <br/>
+                    <label class='form-labels'>New Password Again</label>
+                    <input type="password" name="pass2" placeholder="Enter Password Here:" class="form-control"/>
+                    <br/>
+                    <button class="submit-button btn btn-success" type="submit">Submit</button>
+                </form>
+            </div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+       	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+       	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+       	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/posts.css"/>
+		<link rel="stylesheet" href="/css/navbar.css"/>
+		<script src="/js/posts.js"></script>
+		<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+		<script>
+			var id = {{id}};
+		</script>
+	</head>
+	<body>
+		<div id="page">
+			{%include "twig/navbar.twig"%}
+			<div id="main-content">
+				<div id="posts" class="grid">
+					{%for post in posts%}
+					<div class="post grid-item">
+						<div class="post-click" for-post="{{post.postId}}">
+							<div class="image-data-container">
+								<img class="img" src="{{post.url}}"/>
+								<h4 class="name">{{post.text}}</h4>
+							</div>
+							<p>Posted By: {{post.userName}}</p>
+						</div>
+						<button type="button" class="like" for-post="{{post.postId}}" likes="{{post.likes|length}}"><span class="fa fa-heart fa-6 {%if id in post.likes%}red{%endif%}"></span>: {{post.likes|length}}</button>
+					</div>
+					{%endfor%}
+				</div>
+				<div id="modal">
+					<div id="modal-content">
+						<button id="close" type="button" class="btn btn-warning"><span class="fa fa-times"></span></button>
+						<div id="post">
+							<img id="modal-img" src=""/>
+							<br/>
+							<h5 id="modal-text"></h5>
+							<input type="text" id="modal-comment" placeholder="Comment" for-post=""/>
+							<br/>
+							<div id="comments">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

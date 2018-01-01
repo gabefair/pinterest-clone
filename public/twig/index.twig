@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+       	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+       	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+       	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/index.css"/>
+		<link rel="stylesheet" href="/css/navbar.css"/>
+		<script src="/js/index.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			{%include "twig/navbar.twig"%}
+			<div id="main-content">
+				<h1 class="title">Clonetrist!</h1>
+				<h3 class="sub">Pintrest, but easier!</h3>
+				{%if not loggedin%}
+				<h4>Welcome to Clonetrist! Please <a href="/login">Login</a> or <a href="/register">Register!</a></h4>
+				{%endif%}
+				<div id="sub">
+					<h4>Here you can:</h4>
+					<ul>
+						<li>Create a free account</li>
+						<li>Login via the site, or Twitter or Github</li>
+						<li>Link to, or upload images with captions</li>
+						<li>View, like, and comment on other people's posts.</li>
+						<li>View the likes and comments on your posts</li>
+					</ul>
+					<h3>So what are you waiting for? Get started!</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
