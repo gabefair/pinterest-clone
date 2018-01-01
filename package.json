@@ -2,11 +2,18 @@
   "name": "pintrest",
   "version": "1.0.0",
   "description": "",
+  "engines": {		 
+     "node": "8.9.1"	
+   },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+   "devDependencies": {		
+     "request": "^2.81.0",		
+     "tape": "^4.7.0"		
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ddxtanx/pintrest.git"
